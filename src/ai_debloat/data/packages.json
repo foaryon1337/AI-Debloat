@@ -1,0 +1,554 @@
+[
+  {
+    "package": "com.google.android.gms",
+    "category": "core",
+    "summary": "Google Play Services: account sync, push (FCM), location, safety checks.",
+    "depends_on": ["com.android.vending", "com.google.android.gsf"],
+    "removal_risk": "critical",
+    "notes": ["Disabling breaks push, SafetyNet/Play Integrity, many apps crash"]
+  },
+  {
+    "package": "com.google.android.gsf",
+    "category": "core",
+    "summary": "Google Services Framework: account provisioning and cloud messaging identity.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "critical",
+    "notes": ["Required for Play Services token exchange and Play Store login"]
+  },
+  {
+    "package": "com.android.vending",
+    "category": "store",
+    "summary": "Google Play Store client.",
+    "depends_on": ["com.google.android.gms", "com.google.android.gsf"],
+    "removal_risk": "high",
+    "notes": ["Removing breaks app updates and license checks"]
+  },
+  {
+    "package": "com.android.systemui",
+    "category": "system",
+    "summary": "System UI (status bar, notifications, navigation).",
+    "depends_on": [],
+    "removal_risk": "critical",
+    "notes": ["Removing or disabling will bootloop devices"]
+  },
+  {
+    "package": "com.android.phone",
+    "category": "telephony",
+    "summary": "Telephony services (calls, SIM management).",
+    "depends_on": [],
+    "removal_risk": "critical",
+    "notes": ["Required for voice/SMS; disabling causes no service"]
+  },
+  {
+    "package": "com.android.providers.downloads",
+    "category": "system",
+    "summary": "Download manager used by Play Store and browsers.",
+    "depends_on": [],
+    "removal_risk": "high",
+    "notes": ["Removing breaks Play Store and in-app downloads"]
+  },
+  {
+    "package": "com.google.android.youtube",
+    "category": "media",
+    "summary": "YouTube client preinstall on many OEM builds.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; minor dependency for casting intents"]
+  },
+  {
+    "package": "com.google.android.apps.youtube.music",
+    "category": "media",
+    "summary": "YouTube Music streaming client.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; may handle media intents"]
+  },
+  {
+    "package": "com.google.android.apps.maps",
+    "category": "navigation",
+    "summary": "Google Maps navigation and maps APIs container.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "medium",
+    "notes": ["Apps using Maps intents will fail if removed"]
+  },
+  {
+    "package": "com.google.android.apps.tachyon",
+    "category": "communications",
+    "summary": "Google Meet/Duo video calling app often preloaded.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; VoIP calls unavailable afterwards"]
+  },
+  {
+    "package": "com.google.android.apps.docs",
+    "category": "productivity",
+    "summary": "Google Drive/Docs client for file sync.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; drive links may open in browser instead"]
+  },
+  {
+    "package": "com.google.android.apps.photos",
+    "category": "media",
+    "summary": "Google Photos backup and gallery app.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "medium",
+    "notes": ["Safe to remove; camera roll may fall back to OEM gallery"]
+  },
+  {
+    "package": "com.google.android.apps.magazines",
+    "category": "media",
+    "summary": "Google Newsstand/News app preload.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; news intents open in browser"]
+  },
+  {
+    "package": "com.google.android.apps.books",
+    "category": "media",
+    "summary": "Google Play Books reader.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; EPUB/PDF opens with other apps"]
+  },
+  {
+    "package": "com.google.android.videos",
+    "category": "media",
+    "summary": "Google Play Movies & TV client.",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; casting intents may fallback"]
+  },
+  {
+    "package": "com.google.android.music",
+    "category": "media",
+    "summary": "Legacy Google Play Music client (obsolete).",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; replaced by YouTube Music"]
+  },
+  {
+    "package": "com.samsung.android.game.gamehome",
+    "category": "oem_samsung",
+    "summary": "Samsung Game Launcher and Game Tools suite.",
+    "depends_on": ["com.samsung.android.game.gametools"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; gaming overlay features disappear"]
+  },
+  {
+    "package": "com.samsung.android.bixby.agent",
+    "category": "oem_samsung",
+    "summary": "Bixby voice assistant agent.",
+    "depends_on": ["com.samsung.systemui.bixby2"],
+    "removal_risk": "low",
+    "notes": ["Safe to disable; side key remap may be affected"]
+  },
+  {
+    "package": "com.samsung.android.app.tips",
+    "category": "oem_samsung",
+    "summary": "Samsung Tips/Help content app.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.samsung.android.themestore",
+    "category": "oem_samsung",
+    "summary": "Galaxy Themes storefront.",
+    "depends_on": ["com.samsung.android.mobileservice"],
+    "removal_risk": "medium",
+    "notes": ["Remapping themes/wallpapers may fail"]
+  },
+  {
+    "package": "com.samsung.android.calendar",
+    "category": "oem_samsung",
+    "summary": "Samsung Calendar app with Exchange integration.",
+    "depends_on": ["com.android.providers.calendar"],
+    "removal_risk": "medium",
+    "notes": ["Safe to remove if alternate calendar installed"]
+  },
+  {
+    "package": "com.samsung.android.email.provider",
+    "category": "oem_samsung",
+    "summary": "Samsung Email client and Exchange services.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to remove; disables Exchange sync unless third-party client installed"]
+  },
+  {
+    "package": "com.miui.analytics",
+    "category": "oem_xiaomi",
+    "summary": "MIUI analytics/telemetry collector.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to disable; reduces telemetry"]
+  },
+  {
+    "package": "com.miui.msa.global",
+    "category": "oem_xiaomi",
+    "summary": "MIUI System Ads service injecting ads in system apps.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to disable; removes ads from MIUI apps"]
+  },
+  {
+    "package": "com.miui.cloudservice",
+    "category": "oem_xiaomi",
+    "summary": "Xiaomi cloud backup/sync backend.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Disabling stops Mi Cloud sync"]
+  },
+  {
+    "package": "com.xiaomi.midrop",
+    "category": "oem_xiaomi",
+    "summary": "Mi Drop/ShareMe file transfer.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; affects Mi Share intents"]
+  },
+  {
+    "package": "com.xiaomi.mipicks",
+    "category": "oem_xiaomi",
+    "summary": "GetApps (Xiaomi app store).",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to disable; alternative app store"]
+  },
+  {
+    "package": "com.miui.bugreport",
+    "category": "oem_xiaomi",
+    "summary": "MIUI bug reporting tool.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.huawei.android.thememanager",
+    "category": "oem_huawei",
+    "summary": "Huawei Theme Manager store.",
+    "depends_on": ["com.huawei.android.hwouc"],
+    "removal_risk": "medium",
+    "notes": ["Safe to disable; theming not available"]
+  },
+  {
+    "package": "com.huawei.appmarket",
+    "category": "oem_huawei",
+    "summary": "Huawei AppGallery store client.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to remove on GMS devices; needed for HMS app updates"]
+  },
+  {
+    "package": "com.huawei.hidisk",
+    "category": "oem_huawei",
+    "summary": "Huawei file manager and cloud integration.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to replace with third-party file manager"]
+  },
+  {
+    "package": "com.oppo.market",
+    "category": "oem_oppo",
+    "summary": "OPPO/ColorOS app store.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to disable; ColorOS updates may use it"]
+  },
+  {
+    "package": "com.coloros.gamespace",
+    "category": "oem_oppo",
+    "summary": "ColorOS game space optimizer.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; gaming optimizations disabled"]
+  },
+  {
+    "package": "com.heytap.themestore",
+    "category": "oem_oppo",
+    "summary": "ColorOS/realme theme store.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to disable; theme customization lost"]
+  },
+  {
+    "package": "com.oneplus.gamespace",
+    "category": "oem_oneplus",
+    "summary": "OnePlus Game Space hub and booster.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; gaming overlay disabled"]
+  },
+  {
+    "package": "com.oneplus.weather",
+    "category": "oem_oneplus",
+    "summary": "OnePlus Weather app and widgets.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; widgets disappear"]
+  },
+  {
+    "package": "com.realme.gamespace",
+    "category": "oem_realme",
+    "summary": "realme Game Space manager.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.vivo.browser",
+    "category": "oem_vivo",
+    "summary": "Vivo preinstalled browser with ads.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; reduces ads"]
+  },
+  {
+    "package": "com.vivo.wallet",
+    "category": "oem_vivo",
+    "summary": "Vivo Wallet/payment service.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to remove if not using Vivo Pay"]
+  },
+  {
+    "package": "com.motorola.motocare",
+    "category": "oem_motorola",
+    "summary": "Moto Care/Help support app.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.motorola.genie",
+    "category": "oem_motorola",
+    "summary": "Moto Voice/assistant components on some models.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to disable; voice hotword stops"]
+  },
+  {
+    "package": "com.lenovo.leos.appstore",
+    "category": "oem_lenovo",
+    "summary": "Lenovo app store preinstall.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to disable"]
+  },
+  {
+    "package": "com.htc.sense.socialnetwork.facebook",
+    "category": "oem_htc",
+    "summary": "HTC Sense Facebook integration bundle.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; widgets lose FB data"]
+  },
+  {
+    "package": "com.lge.smartshare",
+    "category": "oem_lg",
+    "summary": "LG SmartShare DLNA media sharing.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; DLNA disabled"]
+  },
+  {
+    "package": "com.sonymobile.music",
+    "category": "oem_sony",
+    "summary": "Sony Music app and media services.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.tmobile.pr.adapt",
+    "category": "carrier",
+    "summary": "T-Mobile Device Manager (DM/OTA and profile).",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Removing may break carrier provisioning/visual voicemail"]
+  },
+  {
+    "package": "com.tmobile.vvm.application",
+    "category": "carrier",
+    "summary": "T-Mobile visual voicemail client.",
+    "depends_on": ["com.tmobile.pr.adapt"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; VVM unavailable"]
+  },
+  {
+    "package": "com.vzw.hss.myverizon",
+    "category": "carrier",
+    "summary": "Verizon account and device management.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to disable; OTA/provisioning might depend on it"]
+  },
+  {
+    "package": "com.att.myWireless",
+    "category": "carrier",
+    "summary": "AT&T account manager app.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.facebook.katana",
+    "category": "preload_third_party",
+    "summary": "Facebook app preload with services.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; services run in background if kept"]
+  },
+  {
+    "package": "com.facebook.appmanager",
+    "category": "preload_third_party",
+    "summary": "Facebook App Manager updater.",
+    "depends_on": ["com.facebook.services"],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; stops silent updates"]
+  },
+  {
+    "package": "com.facebook.services",
+    "category": "preload_third_party",
+    "summary": "Facebook services for push and analytics.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to remove; some apps using Facebook login may need reinstall"]
+  },
+  {
+    "package": "com.netflix.mediaclient",
+    "category": "preload_third_party",
+    "summary": "Netflix streaming client preload.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.amazon.appmanager",
+    "category": "preload_third_party",
+    "summary": "Amazon Appstore/App Manager for updates.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Removing stops Amazon app auto-updates"]
+  },
+  {
+    "package": "com.amazon.kindle",
+    "category": "preload_third_party",
+    "summary": "Amazon Kindle reader.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.microsoft.skydrive",
+    "category": "preload_third_party",
+    "summary": "OneDrive preload on some OEMs.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; unlink accounts first"]
+  },
+  {
+    "package": "com.booking",
+    "category": "preload_third_party",
+    "summary": "Booking.com travel app preload.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.ebay.mobile",
+    "category": "preload_third_party",
+    "summary": "eBay marketplace app preload.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.tripadvisor.tripadvisor",
+    "category": "preload_third_party",
+    "summary": "Tripadvisor travel app preload.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove"]
+  },
+  {
+    "package": "com.tencent.mobileqq",
+    "category": "messaging",
+    "summary": "QQ messaging client.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove unless used"]
+  },
+  {
+    "package": "com.tencent.mm",
+    "category": "messaging",
+    "summary": "WeChat messaging/super-app.",
+    "depends_on": [],
+    "removal_risk": "medium",
+    "notes": ["Safe to remove; some OEM services rely on WeChat Pay integration"]
+  },
+  {
+    "package": "com.google.android.gms.ads",
+    "category": "ads",
+    "summary": "Google Mobile Ads SDK (Play services ads module).",
+    "depends_on": ["com.google.android.gms"],
+    "removal_risk": "medium",
+    "notes": ["Disabling may crash ad-supported apps"]
+  },
+  {
+    "package": "com.inmobi.androidsdk",
+    "category": "ads",
+    "summary": "InMobi advertising SDK container.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; ad display stops"]
+  },
+  {
+    "package": "com.unity3d.ads",
+    "category": "ads",
+    "summary": "Unity Ads SDK service.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; games may crash if not handling missing ads"]
+  },
+  {
+    "package": "com.smaato.sdk",
+    "category": "ads",
+    "summary": "Smaato ad mediation SDK.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; ad calls fail"]
+  },
+  {
+    "package": "com.adjust.sdk",
+    "category": "analytics",
+    "summary": "Adjust attribution SDK service.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; attribution breaks"]
+  },
+  {
+    "package": "com.appsflyer",
+    "category": "analytics",
+    "summary": "AppsFlyer attribution/analytics SDK.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; attribution breaks"]
+  },
+  {
+    "package": "com.branch.sdk",
+    "category": "analytics",
+    "summary": "Branch deep-linking SDK container.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; deep links may fail"]
+  },
+  {
+    "package": "com.airpush",
+    "category": "ads",
+    "summary": "AirPush ad/notification push SDK.",
+    "depends_on": [],
+    "removal_risk": "low",
+    "notes": ["Safe to remove; stops push ads"]
+  }
+]
